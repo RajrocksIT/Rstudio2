@@ -1,0 +1,106 @@
+---
+title: "Assignment 2 - Rajesh Chinni"
+output: html_document
+---
+**1.** 
+
+
+**a.** 
+```{r}
+library(datasets)
+library(MASS)
+data(Cars93)
+vector1 <- c("5", "12", "7", "32")
+  max(vector1)
+  sort(vector1)
+  #sum(vector1)
+```
+Quotation marks convert numbers into characters. we can check this by class(vector1). R sees the above vector as words and arranges them in ascending order. Probably here R sees the first number in the every quotation mark and makes judgement for max and sort. Therefore the results of max and sort is not correct. For sum, there cannot be summation of characters.
+
+**1.** 
+
+
+**b.** 
+```{r}
+vector2 <- c("5",7,12)
+#vector2[2] + vector2[3]
+```
+The above result is correct because vector is a sequence of values, all of the same type.
+```{r}
+dataframe3 <- data.frame(z1="5",z2=7,z3=12)
+dataframe3[1,2] + dataframe3[1,3]
+colnames(dataframe3)
+
+```
+Dataframe is a classic data table and Z1, Z2 and z3 are column names which can have their own datas types. Therefore the result of 19 is correct as we are adding column z2 and z3 which have same data types.
+```{r}
+list4 <- list(z1="6", z2=42, z3="49", z4=126)
+list4[[2]]+list4[[4]]
+#list4[2]+list4[4]
+```
+list is a sequence of values, not necessarily all of the same type. Also, a list is a generic vector containing other objects. We retrieve a list slice with the single square bracket "[]" operator.Therefore, in order to reference a list member directly, we have to use the double square bracket "[[]]" operator.
+
+**2.** 
+
+**a to f.** 
+
+
+```{r}
+typeof(mtcars)
+is.data.frame(mtcars)
+nrow(mtcars)
+ncol(mtcars)
+colnames(mtcars)
+mtcars[5,7]
+#its the qsec of Hornet sportabout
+mtcars[2,]
+mtcars
+mydata<- mtcars
+names(mydata) <- c("mileage","cylinder",seq(0,8))
+mydata
+```
+**2.** 
+
+**g to h.** 
+```{r}
+converttoliters<-mtcars[,3]*0.0163871
+converttoliters
+mtcars["disp_l"]<- converttoliters
+mtcars
+# alternativelty we can use cbind(exisiting datafame, new values)
+
+```
+ **3.** 
+ 
+```{r}
+seq(from=1, to=10000, by=372)
+seq(from=1, to=10000, length.out=50)
+rep(1:3, times=3)
+rep(1:3, each=3)
+# rep(1:3, times=3) repeats c(1, 2, 3) 3 times whereas rep(1:3, each=3) produces each 1 1 1 2 2 2 3 3 3
+```
+  **4.** 
+```{r}
+View(Cars93)
+#TRUE, Instructor likes cars
+summary(Cars93)
+# 93 rows
+nrow(Cars93)
+  
+rearwheel <- subset(Cars93,DriveTrain ="Rear" )
+mean(rearwheel$Price)
+median(rearwheel$Price)
+# For measure of centrality, mean is better as it is affected by each value in the dataset, including extreme outliers. mean is affected by extreme values so it may not be the best measure of center to use in a skewed distribution. The median is the value in the center of the data.
+sd(rearwheel$Price)
+minhorsepr7 <- subset(Cars93,Passengers == 7 )
+min(minhorsepr7$Horsepower)
+minhorsepr6 <- subset(Cars93,Passengers == 6 )
+min(minhorsepr6$Horsepower)
+
+
+
+
+
+```
+  
+ 
